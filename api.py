@@ -20,10 +20,6 @@ client = OpenAI(api_key=api_key)
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "Hello World"}
-
 @app.post("/upload-drivers/")
 async def upload_drivers(file: UploadFile = File(...)):
     image = Image.open(file.file)
